@@ -6,6 +6,7 @@ package com.portfolio.francovico.Security.Entity;
 
 import java.util.HashSet;
 import java.util.Set;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -29,6 +30,7 @@ public class Usuario {
     @NotNull
     private String nombre;
     @NotNull
+    @Column(unique = true)
     private String nombreUsuario;
     @NotNull
     private String email;
@@ -88,13 +90,12 @@ public class Usuario {
         this.password = password;
     }
 
-    public <any> getRoles() {
+    public Set<Rol> getRoles() {
         return roles;
     }
 
-    public void setRoles(<any> roles) {
+    public void setRoles(Set<Rol> roles) {
         this.roles = roles;
     }
-    
-    
+
     }
