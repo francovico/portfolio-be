@@ -50,5 +50,4 @@ public class Rol implements Serializable {
         this.rolNombre = rolNombre;
     }
     
-    
 }
