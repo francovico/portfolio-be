@@ -52,7 +52,7 @@ public class AuthController {
     @Autowired
     JWTProvider JWTProvider;
     
-    @PostMapping("/auth/nuevo")
+    @PostMapping("/nuevo")
     public ResponseEntity<?> nuevo(@Valid @RequestBody NuevoUsuario nuevoUsuario, BindingResult bindingResult){
         if(bindingResult.hasErrors())
             return new ResponseEntity(new Mensaje("Campos erroneos"), HttpStatus.BAD_REQUEST);
