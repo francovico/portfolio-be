@@ -28,7 +28,10 @@ public class Persona {
     @Size(min = 1, max = 50, message = "Datos invalidos.")
     private String apellido;
     
-    @Size(min = 1, max = 50, message = "Datos invalidos.")
     private String img;
+    
+    private String job;
+    
+    private String about;
     
 }
