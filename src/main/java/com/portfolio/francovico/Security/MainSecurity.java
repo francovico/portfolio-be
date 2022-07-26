@@ -22,6 +22,9 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 /**
  *
@@ -70,16 +73,23 @@ public class MainSecurity extends WebSecurityConfigurerAdapter{
     web.ignoring()
         .antMatchers(HttpMethod.OPTIONS, "/**");}
     
-   // @Bean
-   // public WebMvcConfigurer corsConfigurer() {
-   //     return new WebMvcConfigurer() {
-   //         @Override
-   //         public void addCorsMappings(CorsRegistry registry) {
-   //         // This wildcard pattern matches any host from domain.com and url patterns like "https:microservice.division.domain.com/version1/some_endpoint"
-   //         registry.addMapping("/**").allowedMethods("*").allowedOriginPatterns("https://*.heroku.com");
-   //         }
-   //     };
-   // }
+    
+    // Mas pruebas
+    @Configuration
+    public class CorsConfiguration
+{
+    @Bean
+    public WebMvcConfigurer corsConfigurer()
+    {
+        return new WebMvcConfigurerAdapter() {
+            @Override
+            public void addCorsMappings(CorsRegistry registry) {
+                registry.addMapping("/**");
+            }
+        };
+    }
+}
+    // Mas pruebas
     
 
     @Override
