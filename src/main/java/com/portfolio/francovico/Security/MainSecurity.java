@@ -60,19 +60,19 @@ public class MainSecurity extends WebSecurityConfigurerAdapter{
                 .and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
         http.addFilterBefore(JWTTokenFilter(), UsernamePasswordAuthenticationFilter.class);
+        
     }
     
-
-    @Bean
-    public WebMvcConfigurer corsConfigurer() {
-        return new WebMvcConfigurer() {
-            @Override
-            public void addCorsMappings(CorsRegistry registry) {
-            // This wildcard pattern matches any host from domain.com and url patterns like "https:microservice.division.domain.com/version1/some_endpoint"
-            registry.addMapping("/**").allowedMethods("*").allowedOriginPatterns("https://*.heroku.com");
-            }
-        };
-    }
+   // @Bean
+   // public WebMvcConfigurer corsConfigurer() {
+   //     return new WebMvcConfigurer() {
+   //         @Override
+   //         public void addCorsMappings(CorsRegistry registry) {
+   //         // This wildcard pattern matches any host from domain.com and url patterns like "https:microservice.division.domain.com/version1/some_endpoint"
+   //         registry.addMapping("/**").allowedMethods("*").allowedOriginPatterns("https://*.heroku.com");
+   //         }
+   //     };
+   // }
     
 
     @Override
