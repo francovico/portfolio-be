@@ -88,6 +88,7 @@ public class AboutController {
         
         About about = AboutService.getOne(id).get();
         about.setAbout(dtoabout.getAbout());
+        about.setJob(dtoabout.getJob());
         
         AboutService.save(about);
         return new ResponseEntity(new Mensaje("About actualizado"), HttpStatus.OK);
