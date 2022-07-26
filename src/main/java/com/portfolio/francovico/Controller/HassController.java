@@ -30,7 +30,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("hass")
-@CrossOrigin(origins ="http://localhost:4200")
+@CrossOrigin(origins ="https://portfolio-fe-francovico.herokuapp.com")
 public class HassController {
     @Autowired
     HassService HassService;

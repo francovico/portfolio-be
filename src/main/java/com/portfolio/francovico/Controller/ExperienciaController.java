@@ -32,7 +32,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("experiencia")
 @CrossOrigin(origins ="https://portfolio-fe-francovico.herokuapp.com")
-
 public class ExperienciaController {
     @Autowired
     ExperienciaService ExperienciaService;
