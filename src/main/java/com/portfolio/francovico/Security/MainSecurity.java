@@ -26,9 +26,9 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
  * @author franc
  */
 
-@Configuration
-@EnableWebSecurity
-@EnableGlobalMethodSecurity(prePostEnabled = true)
+//@Configuration
+//@EnableWebSecurity
+//@EnableGlobalMethodSecurity(prePostEnabled = true)
 public class MainSecurity extends WebSecurityConfigurerAdapter{
     @Autowired
     UserDetailsImpl userDetailsServicesImpl;
@@ -44,22 +44,22 @@ public class MainSecurity extends WebSecurityConfigurerAdapter{
         return new BCryptPasswordEncoder();
     }
 
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
-    http.cors().and().csrf().disable()
-                .antMatcher("/**")
-                .authorizeRequests()
-                .antMatchers("**")
-                .permitAll()
-                .anyRequest()
-                .authenticated()
-                .and()
-                .exceptionHandling().authenticationEntryPoint(JWTEntryPoint)
-                .and()
-                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
-        http.addFilterBefore(JWTTokenFilter(), UsernamePasswordAuthenticationFilter.class);
-        
-    }
+//    @Override
+//    protected void configure(HttpSecurity http) throws Exception {
+//    http.cors().and().csrf().disable()
+//                .antMatcher("/**")
+//                .authorizeRequests()
+//                .antMatchers("**")
+//                .permitAll()
+//                .anyRequest()
+//                .authenticated()
+//                .and()
+//                .exceptionHandling().authenticationEntryPoint(JWTEntryPoint)
+//                .and()
+//                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+//        http.addFilterBefore(JWTTokenFilter(), UsernamePasswordAuthenticationFilter.class);
+//        
+//    }
     
     @Override
     protected AuthenticationManager authenticationManager() throws Exception {
