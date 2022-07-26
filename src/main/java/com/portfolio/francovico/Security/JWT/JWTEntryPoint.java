@@ -16,7 +16,7 @@ import org.springframework.stereotype.Component;
 
 /**
  *
- * @author franc
+ * @Autor Franco Vico - Backend para Argentina Programa
  */
 @Component
 public class JWTEntryPoint implements AuthenticationEntryPoint{

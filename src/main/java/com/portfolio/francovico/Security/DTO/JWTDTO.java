@@ -9,7 +9,7 @@ import org.springframework.security.core.GrantedAuthority;
 
 /**
  *
- * @author franc
+ * @Autor Franco Vico - Backend para Argentina Programa
  */
 public class JWTDTO {
    private String token;

@@ -6,7 +6,7 @@ package com.portfolio.francovico.Security.Controller;
 
 /**
  *
- * @author franc
+ * @Autor Franco Vico - Backend para Argentina Programa
  */
 public class Mensaje {
     private String mensaje;

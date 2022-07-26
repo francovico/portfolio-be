@@ -6,7 +6,7 @@ package com.portfolio.francovico.Security.Enums;
 
 /**
  *
- * @author franc
+ * @Autor Franco Vico - Backend para Argentina Programa
  */
 public enum RolNombre {
     ROLE_ADMIN, ROLE_USER

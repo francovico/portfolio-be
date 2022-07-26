@@ -13,7 +13,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 /**
  *
- * @author franc
+ * @Autor Franco Vico - Backend para Argentina Programa
  */
 public class UsuarioPrincipal implements UserDetails{
     private String nombre;

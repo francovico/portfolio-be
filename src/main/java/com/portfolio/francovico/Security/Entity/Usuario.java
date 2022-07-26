@@ -19,7 +19,7 @@ import javax.validation.constraints.NotNull;
 
 /**
  *
- * @author franc
+ * @Autor Franco Vico - Backend para Argentina Programa
  */
 
 @Entity

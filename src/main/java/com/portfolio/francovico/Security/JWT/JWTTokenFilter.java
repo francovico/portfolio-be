@@ -20,7 +20,7 @@ import org.springframework.web.filter.OncePerRequestFilter;
 
 /**
  *
- * @author franc
+ * @Autor Franco Vico - Backend para Argentina Programa
  */
 public class JWTTokenFilter extends OncePerRequestFilter{
         private final static Logger logger = LoggerFactory.getLogger(JWTProvider.class); 

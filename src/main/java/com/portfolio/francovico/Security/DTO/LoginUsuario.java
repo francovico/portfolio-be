@@ -8,7 +8,7 @@ import javax.validation.constraints.NotBlank;
 
 /**
  *
- * @author franc
+ * @Autor Franco Vico - Backend para Argentina Programa
  */
 public class LoginUsuario {
     @NotBlank

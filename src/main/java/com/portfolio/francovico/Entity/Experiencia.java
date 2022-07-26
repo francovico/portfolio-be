@@ -11,7 +11,7 @@ import javax.persistence.Id;
 
 /**
  *
- * @author franc
+ * @Autor Franco Vico - Backend para Argentina Programa
  */
 
 @Entity
@@ -19,14 +19,16 @@ public class Experiencia {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    private String intervalo;
     private String nombreexperiencia;
     private String descripcionexperiencia;
 
     public Experiencia() {
     }
 
-    public Experiencia(String nombreexperiencia, String descripcionexperiencia) {
+    public Experiencia(String nombreexperiencia, String intervalo, String descripcionexperiencia) {
         this.nombreexperiencia = nombreexperiencia;
+        this.intervalo = intervalo;
         this.descripcionexperiencia = descripcionexperiencia;
     }
 
@@ -46,6 +48,14 @@ public class Experiencia {
         this.nombreexperiencia = nombreexperiencia;
     }
 
+    public String getIntervalo() {
+        return intervalo;
+    }
+
+    public void setIntervalo(String intervalo) {
+        this.intervalo = intervalo;
+    }
+    
     public String getDescripcionexperiencia() {
         return descripcionexperiencia;
     }

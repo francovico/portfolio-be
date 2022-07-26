@@ -9,7 +9,7 @@ import java.util.Set;
 
 /**
  *
- * @author franc
+ * @Autor Franco Vico - Backend para Argentina Programa
  */
 public class NuevoUsuario {
     private String nombre;

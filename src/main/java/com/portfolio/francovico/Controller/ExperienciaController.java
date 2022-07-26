@@ -13,7 +13,6 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,7 +25,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  *
- * @author franc
+ * @Autor Franco Vico - Backend para Argentina Programa
  */
 
 @RestController
@@ -65,7 +64,7 @@ public class ExperienciaController {
             return new ResponseEntity (new Mensaje("El nombre es obligatorio"), HttpStatus.BAD_REQUEST);
         if(ExperienciaService.existsBynombreexperiencia(dtoexp.getNombreexperiencia()))
             return new ResponseEntity (new Mensaje("Esa experiencia ya existe"), HttpStatus.BAD_REQUEST);
-        Experiencia experiencia = new Experiencia(dtoexp.getNombreexperiencia(), dtoexp.getDescripcionexperiencia());
+        Experiencia experiencia = new Experiencia(dtoexp.getNombreexperiencia(), dtoexp.getIntervalo(), dtoexp.getDescripcionexperiencia());
         ExperienciaService.save(experiencia);
         
         return new ResponseEntity(new Mensaje("Experiencia agregada"), HttpStatus.OK);
@@ -82,6 +81,7 @@ public class ExperienciaController {
         
         Experiencia experiencia = ExperienciaService.getOne(id).get();
         experiencia.setNombreexperiencia(dtoexp.getNombreexperiencia());
+        experiencia.setIntervalo(dtoexp.getIntervalo());
         experiencia.setDescripcionexperiencia(dtoexp.getDescripcionexperiencia());
         
         ExperienciaService.save(experiencia);

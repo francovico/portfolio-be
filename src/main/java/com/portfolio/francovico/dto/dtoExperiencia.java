@@ -8,18 +8,20 @@ import javax.validation.constraints.NotBlank;
 
 /**
  *
- * @author franc
+ * @Autor Franco Vico - Backend para Argentina Programa
  */
 public class dtoExperiencia {
     @NotBlank
     private String nombreexperiencia;
+    private String intervalo;
     private String descripcionexperiencia;
 
     public dtoExperiencia() {
     }
 
-    public dtoExperiencia(String nombreexperiencia, String descripcionexperiencia) {
+    public dtoExperiencia(String nombreexperiencia, String intervalo, String descripcionexperiencia) {
         this.nombreexperiencia = nombreexperiencia;
+        this.intervalo = intervalo;
         this.descripcionexperiencia = descripcionexperiencia;
     }
 
@@ -31,6 +33,14 @@ public class dtoExperiencia {
         this.nombreexperiencia = nombreexperiencia;
     }
 
+    public String getIntervalo() {
+        return intervalo;
+    }
+
+    public void setIntervalo(String intervalo) {
+        this.intervalo = intervalo;
+    }
+
     public String getDescripcionexperiencia() {
         return descripcionexperiencia;
     }
@@ -38,7 +48,5 @@ public class dtoExperiencia {
     public void setDescripcionexperiencia(String descripcionexperiencia) {
         this.descripcionexperiencia = descripcionexperiencia;
     }
-    
-    
     
 }

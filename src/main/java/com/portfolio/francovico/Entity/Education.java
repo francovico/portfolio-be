@@ -11,7 +11,7 @@ import javax.persistence.Id;
 
 /**
  *
- * @author franc
+ * @Autor Franco Vico - Backend para Argentina Programa
  */
 @Entity
 public class Education {
