@@ -20,6 +20,8 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 /**
  *
@@ -46,16 +48,32 @@ public class MainSecurity extends WebSecurityConfigurerAdapter{
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.cors().and().csrf().disable()
+    http.cors().and().csrf().disable()
+                .antMatcher("/**")
                 .authorizeRequests()
-                .antMatchers("**").permitAll()
-                .anyRequest().authenticated()
+                .antMatchers("**")
+                .permitAll()
+                .anyRequest()
+                .authenticated()
                 .and()
                 .exceptionHandling().authenticationEntryPoint(JWTEntryPoint)
                 .and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
         http.addFilterBefore(JWTTokenFilter(), UsernamePasswordAuthenticationFilter.class);
     }
+    
+
+    @Bean
+    public WebMvcConfigurer corsConfigurer() {
+        return new WebMvcConfigurer() {
+            @Override
+            public void addCorsMappings(CorsRegistry registry) {
+            // This wildcard pattern matches any host from domain.com and url patterns like "https:microservice.division.domain.com/version1/some_endpoint"
+            registry.addMapping("/**").allowedMethods("*").allowedOriginPatterns("https://*.heroku.com");
+            }
+        };
+    }
+    
 
     @Override
     protected AuthenticationManager authenticationManager() throws Exception {
