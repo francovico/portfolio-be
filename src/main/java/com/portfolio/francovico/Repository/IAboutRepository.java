@@ -15,6 +15,8 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface IAboutRepository extends JpaRepository<About, Integer>{
-    public Optional<About> findByabout(String about);
-    public boolean existsByabout(String about);
+    public Optional<About> findByAbout(String about);
+    public Optional<About> findByJob(String job);
+    public boolean existsByAbout(String about);
+    public boolean existsByJob(String job);
 }

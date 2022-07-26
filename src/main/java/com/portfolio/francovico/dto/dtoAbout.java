@@ -13,6 +13,7 @@ import javax.validation.constraints.NotBlank;
 public class dtoAbout {
     @NotBlank
     private String about;
+    private String job;
 
     public dtoAbout() {
     }
@@ -27,6 +28,14 @@ public class dtoAbout {
 
     public void setAbout(String about) {
         this.about = about;
+    }
+
+    public String getJob() {
+        return job;
+    }
+
+    public void setJob(String job) {
+        this.job = job;
     }
     
 }

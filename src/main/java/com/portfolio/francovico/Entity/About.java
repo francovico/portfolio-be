@@ -19,6 +19,7 @@ public class About {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    private String job;
     private String about;
 
     public About() {
@@ -42,6 +43,14 @@ public class About {
 
     public void setAbout(String about) {
         this.about = about;
+    }
+
+    public String getJob() {
+        return job;
+    }
+
+    public void setJob(String job) {
+        this.job = job;
     }
     
 }

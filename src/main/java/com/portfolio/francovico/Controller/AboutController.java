@@ -56,14 +56,16 @@ public class AboutController {
             return new ResponseEntity(new Mensaje("No existe"), HttpStatus.NOT_FOUND);
         }
         AboutService.delete(id);
-        return new ResponseEntity(new Mensaje("Experiencia eliminada"), HttpStatus.OK);
+        return new ResponseEntity(new Mensaje("Datos eliminados"), HttpStatus.OK);
     }
 
     @PostMapping("/create")
     public ResponseEntity<?> create(@RequestBody dtoAbout dtoabout){
         if(StringUtils.isBlank(dtoabout.getAbout()))
             return new ResponseEntity (new Mensaje("El texto es obligatorio"), HttpStatus.BAD_REQUEST);
-        if(AboutService.existsByabout(dtoabout.getAbout()))
+        if(AboutService.existsByAbout(dtoabout.getAbout()))
+            return new ResponseEntity (new Mensaje("El texto no puede ser igual"), HttpStatus.BAD_REQUEST);
+        if(AboutService.existsByJob(dtoabout.getJob()))
             return new ResponseEntity (new Mensaje("El texto no puede ser igual"), HttpStatus.BAD_REQUEST);
         About about = new About(dtoabout.getAbout());
         AboutService.save(about);
@@ -75,9 +77,13 @@ public class AboutController {
     public ResponseEntity<?> update(@PathVariable("id") int id, @RequestBody dtoAbout dtoabout){
         if(!AboutService.existsById(id))
             return new ResponseEntity(new Mensaje("El Id no existe"), HttpStatus.BAD_REQUEST);
-        if(AboutService.existsByabout(dtoabout.getAbout()) && AboutService.getByabout(dtoabout.getAbout()).get().getId() != id)
+        if(AboutService.existsByAbout(dtoabout.getAbout()) && AboutService.getByAbout(dtoabout.getAbout()).get().getId() != id)
+            return new ResponseEntity(new Mensaje("El texto no puede ser igual"), HttpStatus.BAD_REQUEST);
+        if(AboutService.existsByJob(dtoabout.getJob()) && AboutService.getByJob(dtoabout.getJob()).get().getId() != id)
             return new ResponseEntity(new Mensaje("El texto no puede ser igual"), HttpStatus.BAD_REQUEST);
         if(StringUtils.isBlank(dtoabout.getAbout()))
+            return new ResponseEntity(new Mensaje("El texto es obligatorio"), HttpStatus.BAD_REQUEST);
+        if(StringUtils.isBlank(dtoabout.getJob()))
             return new ResponseEntity(new Mensaje("El texto es obligatorio"), HttpStatus.BAD_REQUEST);
         
         About about = AboutService.getOne(id).get();

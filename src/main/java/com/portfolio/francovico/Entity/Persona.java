@@ -13,7 +13,7 @@ import javax.validation.constraints.Size;
 import lombok.Getter;
 import lombok.Setter;
 
-@Getter @Setter
+@Getter @Setter // Genera automaticamente Getter and Setters. Probado solo en este.
 @Entity
 public class Persona {
     @Id
@@ -29,9 +29,5 @@ public class Persona {
     private String apellido;
     
     private String img;
-    
-    private String job;
-    
-    private String about;
     
 }

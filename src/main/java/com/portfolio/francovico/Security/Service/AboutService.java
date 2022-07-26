@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Optional;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.batch.BatchProperties.Job;
 import org.springframework.stereotype.Service;
 
 /**
@@ -23,7 +24,6 @@ public class AboutService {
     @Autowired
     IAboutRepository rAbout;
     
-    // Busca todo y devuelve una lista completa de Experiencias.
     public List<About> list(){
         return rAbout.findAll();
     }
@@ -33,13 +33,17 @@ public class AboutService {
     }
     
     //El Optional es porque puede estar o no.
-    public Optional<About> getByabout(String about){
-        return rAbout.findByabout(about);
+    public Optional<About> getByAbout(String about){
+        return rAbout.findByAbout(about);
     }
+    
+    public Optional<About> getByJob(String job){
+        return rAbout.findByJob(job);
+    }    
     
     public void save(About about){
         rAbout.save(about);
-    }
+    }   
     
     public void delete(int id){
         rAbout.deleteById(id);
@@ -49,8 +53,12 @@ public class AboutService {
         return rAbout.existsById(id);
     }
     
-    public boolean existsByabout(String about){
-        return rAbout.existsByabout(about);
+    public boolean existsByAbout(String about){
+        return rAbout.existsByAbout(about);
+    }
+    
+    public boolean existsByJob(String job){
+    return rAbout.existsByJob(job);
     }
     
 }
