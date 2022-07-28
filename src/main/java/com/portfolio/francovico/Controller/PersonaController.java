@@ -5,6 +5,7 @@ import com.portfolio.francovico.Interface.IPersonaService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,6 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("personas")
 @CrossOrigin(origins ="https://portfolio-fe-francovico.herokuapp.com")
+@EnableWebSecurity // Agregado 28/7/22 a las 20:20
 public class PersonaController {
     @Autowired IPersonaService ipersonaService;
     
