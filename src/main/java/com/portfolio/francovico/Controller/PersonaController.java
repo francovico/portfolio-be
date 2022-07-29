@@ -31,7 +31,7 @@ public class PersonaController {
     
     @GetMapping("/traer/perfil")
     public Persona findPersona(){
-        return ipersonaService.findPersona((long)4);
+        return ipersonaService.findPersona((long)1);
     }
     
     //@PreAuthorize("hasRole('ROLE_ADMIN')")
