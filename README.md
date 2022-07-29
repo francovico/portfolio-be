@@ -26,3 +26,5 @@
 <div>Put: https://portfolio-be-francovico.herokuapp.com/about/update/${id} - Actualizar por Id</div>
 <div>Delete: https://portfolio-be-francovico.herokuapp.com/about/delete/${id} - Borrar por Id</div>
 </div>
+<br />
+<div>Falta securitizar los Endpoints Create/Delete/Update mediante la anotacion @PreAuthorize("hasRole('ROLE_ADMIN')") en los Endpoints. Esta todo implementado, pero debido a algun error que aun no pude encontrar al descomentarlo no permite la autenticación de ninguna manera. Entiendo la importancia de esto.</div>
