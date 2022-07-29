@@ -53,7 +53,7 @@ public class AboutController {
         return new ResponseEntity(about, HttpStatus.OK);
     }
     
-    @PreAuthorize("hasRole('ADMIN')")
+    //@PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> delete(@PathVariable("id") int id) {
         if (!AboutService.existsById(id)) {
@@ -63,7 +63,7 @@ public class AboutController {
         return new ResponseEntity(new Mensaje("Datos eliminados"), HttpStatus.OK);
     }
 
-    @PreAuthorize("hasRole('ADMIN')")
+    //@PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/create")
     public ResponseEntity<?> create(@RequestBody dtoAbout dtoabout){
         if(StringUtils.isBlank(dtoabout.getAbout()))
@@ -78,7 +78,7 @@ public class AboutController {
         return new ResponseEntity(new Mensaje("El texto ha sido agregado"), HttpStatus.OK);
     }
     
-    @PreAuthorize("hasRole('ADMIN')")
+    //@PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/update/{id}")
     public ResponseEntity<?> update(@PathVariable("id") int id, @RequestBody dtoAbout dtoabout){
         if(!AboutService.existsById(id))
