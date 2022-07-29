@@ -32,7 +32,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("experiencia")
 @CrossOrigin(origins ="https://portfolio-fe-francovico.herokuapp.com")
-@EnableWebSecurity // Agregado 28/7/22 a las 20:20
+@EnableWebSecurity
 public class ExperienciaController {
     @Autowired
     ExperienciaService ExperienciaService;

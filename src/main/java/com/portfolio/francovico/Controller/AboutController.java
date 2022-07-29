@@ -13,6 +13,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -32,7 +33,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("about")
 @CrossOrigin(origins ="https://portfolio-fe-francovico.herokuapp.com")
-@EnableWebSecurity // Agregado 28/7/22 a las 20:20
+@EnableWebSecurity
 
 public class AboutController {
     @Autowired
@@ -52,6 +53,7 @@ public class AboutController {
         return new ResponseEntity(about, HttpStatus.OK);
     }
     
+    @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> delete(@PathVariable("id") int id) {
         if (!AboutService.existsById(id)) {
@@ -61,6 +63,7 @@ public class AboutController {
         return new ResponseEntity(new Mensaje("Datos eliminados"), HttpStatus.OK);
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/create")
     public ResponseEntity<?> create(@RequestBody dtoAbout dtoabout){
         if(StringUtils.isBlank(dtoabout.getAbout()))
@@ -75,6 +78,7 @@ public class AboutController {
         return new ResponseEntity(new Mensaje("El texto ha sido agregado"), HttpStatus.OK);
     }
     
+    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/update/{id}")
     public ResponseEntity<?> update(@PathVariable("id") int id, @RequestBody dtoAbout dtoabout){
         if(!AboutService.existsById(id))

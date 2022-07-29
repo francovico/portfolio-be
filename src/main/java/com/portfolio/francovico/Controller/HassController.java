@@ -62,6 +62,7 @@ public class HassController {
         return new ResponseEntity(new Mensaje("Hard and soft skill eliminado"), HttpStatus.OK);
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/create")
     public ResponseEntity<?> create(@RequestBody dtoHass dtohass){
         if(StringUtils.isBlank(dtohass.getNombrehass()))
@@ -74,6 +75,7 @@ public class HassController {
         return new ResponseEntity(new Mensaje("Hard and soft skill agregado"), HttpStatus.OK);
     }
     
+    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/update/{id}")
     public ResponseEntity<?> update(@PathVariable("id") int id, @RequestBody dtoHass dtohass){
         if(!HassService.existsById(id))
